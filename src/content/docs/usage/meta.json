@@ -1,0 +1,9 @@
+{
+  "pages": [
+    "setup",
+    "log-retrieval",
+    "manual-logging",
+    "auto-logging",
+    "advanced-features"
+  ]
+}

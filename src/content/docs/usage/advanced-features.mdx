@@ -1,0 +1,45 @@
+---
+title: "Advanced Features"
+description: "Advanced logging features for KoalaLog."
+---
+
+### `@AutoLogOutput` – Periodic Logging of Fields and Methods
+
+The `@AutoLogOutput` annotation is used to **periodically log the output of a field or method**.
+
+This is especially useful for:
+
+- Continuously logging the value of a **pose**, variable, or calculation that changes over time.
+- Logging **static fields** and **static methods** that are not in an `@AutoLog` class.
+- Logging a method **periodically** even if it is already in an `@AutoLog` class.
+
+> 📌 **Key Difference from `@AutoLog`:**  
+> When using `@AutoLog`, **fields are logged periodically by default**, but **methods are only logged when explicitly called**.  
+> With `@AutoLogOutput`, both fields and methods are logged **automatically at regular intervals**, even if the method is not being called.
+
+This makes `@AutoLogOutput` a powerful tool for continuously tracking critical data points that may not be actively accessed during execution.
+
+![Periodic Logging Example](/media/hero-light.png)
+_Example: Periodic logging of fields and methods with @AutoLogOutput_
+
+---
+
+#### Logging Robot Pose
+
+The Koala logger includes a convenient function for logging your robot's pose in the `Pose2d` format, making it easy to visualize the robot's position and orientation within AdvantageScope's 2D or 3D field views.
+
+To log the robot's pose, simply call:
+
+```java
+KoalaLog.logPose2d("pose", x, y, heading, true);
+```
+
+- `"pose"` is the name of the log entry.
+- `x`, `y` are the robot's coordinates (in meters).
+- `heading` is the rotation angle (in radians).
+- `true` posts it to the FTC Dashboard (currently as a string; full pose on the field coming soon)
+
+Once logged, your robot's position will be rendered in real-time within AdvantageScope, either on a flat field map or in 3D mode, allowing for intuitive debugging and performance analysis.
+
+![Pose2d in AdvantageScope](/media/hero-dark.png)
+_Example: Visualizing robot pose in AdvantageScope_

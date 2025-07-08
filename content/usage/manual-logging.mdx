@@ -1,0 +1,20 @@
+---
+title: "Manual Logging"
+description: "How to log values manually with KoalaLog."
+---
+
+## ✍️ Manual Logging
+
+You can also log values manually using the `KoalaLog.log()` function.
+
+### 🧑‍💻 Usage
+
+```java
+KoalaLog.log("BatteryVoltage", voltageSensor.getVoltage(), true);
+```
+
+### Parameters
+
+- **Name** (`String`): The label for the log entry.
+- **Value**: A supported data type (e.g., `double`, `boolean`, etc.).
+- **Post to Dashboard** (`boolean`): Whether to also publish the value to FTC Dashboard.

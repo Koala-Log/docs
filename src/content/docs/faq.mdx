@@ -1,0 +1,39 @@
+---
+title: "FAQ & Troubleshooting"
+description: "Frequently asked questions and troubleshooting tips for KoalaLog."
+---
+
+# FAQ & Troubleshooting
+
+## Why isn't my log file being generated?
+
+- Make sure you have added the JitPack repository and dependencies as described in the setup instructions.
+- Ensure you have called `KoalaLog.setup(hardwareMap);` in your OpMode's `init()` method.
+- You **must** add FTC Dashboard to your project for KoalaLog to work correctly. Follow the official instructions here: [How to Add FTC Dashboard](https://github.com/acmerobotics/ftc-dashboard?tab=readme-ov-file#basic)
+- Check that your device has write permissions to storage.
+
+## How do I use the Log Puller tools?
+
+- Download `FTCLogPuller.exe` or `PullAndDeleteLogs.exe` from the [LogPuller folder](https://github.com/ori-coval/Koala-Log/tree/main/LogPuller).
+- The first time you run either `.exe`, you must be connected to the **internet** (but **not** connected to the robot) so it can download the ADB tool.
+- Connect to your robot using Wi-Fi (wireless ADB) or a USB-C cable (wired ADB) and open the [REV Hardware Client](https://docs.revrobotics.com/rev-hardware-client).
+- Run the executable, choose a destination folder, and your logs will be downloaded there.
+- `PullAndDeleteLogs.exe` will **delete logs** from the robot after downloading. Use this to clear storage on the Control Hub.
+
+## My data isn't showing up in AdvantageScope
+
+- Make sure you are logging with the correct data types and field names.
+- Confirm that the log file is not empty and contains recent data.
+- Use the generated `<ClassName>AutoLogged` class if you are using `@AutoLog`.
+- Call `AutoLogManager.periodic();` in your OpMode's `loop()` or `run()` method to ensure periodic logging.
+
+## FTC Dashboard isn't showing my data
+
+- Ensure you have added FTC Dashboard as a dependency and followed its setup instructions.
+- The `post` parameter in `KoalaLog.log(..., true)` must be set to `true` to publish to the dashboard.
+
+## Where can I get more help?
+
+- See the [Wiki](https://github.com/ori-coval/Koala-Log/wiki) for detailed guides.
+- Join the Discord: https://discord.gg/XunReBq5
+- Open an issue or pull request on [GitHub](https://github.com/ori-coval/Koala-Log)

@@ -1,0 +1,77 @@
+---
+title: "Overview"
+---
+
+KoalaLog is a logging framework for FTC robots that generates `.wpilog` files
+fully compatible with [Advantage Scope](https://docs.advantagescope.org). It
+enables rich telemetry and data capture—just like in FRC.
+
+# Why Choose KoalaLog?
+
+Logging key metrics—like elevator height, PID controller outputs, target setpoints, and autonomous states—helps you:
+
+- Quickly tune your robot systems
+- Diagnose issues mid-practice
+- Perform detailed analysis after matches
+
+All with minimal boilerplate, and full compatibility with AdvantageScope and FTC Dashboard.
+
+# What You Can Do
+
+- **Automatically log telemetry** using `@AutoLog` annotations—no manual data handling needed
+- **Visualize and analyze logs** in [AdvantageScope](https://github.com/Mechanical-Advantage/AdvantageScope)
+- **Stream live data** to the FTC Dashboard
+- **Mix manual logging** when you need fine-grained control
+- **Retrieve `.wpilog` logs** from your robot using prebuilt ADB executables
+
+# Project Structure
+
+- `KoalaLogger`: Core runtime library for robot code
+- `KoalaLoggingProcessor`: Annotation processor for generating logging boilerplate
+- `LogPuller`: Tools to retrieve logs from the Control Hub
+- `LogPullerDevelopment`: Scripts for building log puller tools
+
+# Installation
+
+## 1️⃣ Add the JitPack Repository
+
+In your `TeamCode/build.gradle` file, add the following **below the `android` block**:
+
+```groovy
+android {
+    // your existing config...
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+```
+
+## 2️⃣ Add the Dependencies
+
+Still in `TeamCode/build.gradle`, add the following inside the `dependencies` block:
+
+```groovy
+dependencies {
+    implementation 'com.github.ori-coval.Koala-Log:KoalaLogger:<version>'
+    annotationProcessor 'com.github.ori-coval.Koala-Log:KoalaLoggingProcessor:<version>'
+}
+```
+
+> 🔁 Replace `<version>` with the latest version:  
+> [![](https://jitpack.io/v/ori-coval/Koala-Log.svg)](https://jitpack.io/#ori-coval/Koala-Log)
+
+## ⚠️ Required: FTC Dashboard
+
+This logger uses [FTC Dashboard](https://github.com/acmerobotics/ftc-dashboard) to post live values.
+You **must** add FTC Dashboard to your project for it to work correctly. Follow the official instructions here:  
+📚 [How to Add FTC Dashboard](https://github.com/acmerobotics/ftc-dashboard?tab=readme-ov-file#basic)
+
+# Get Involved
+
+- **Try it out:** add KoalaLog to your project and experiment
+- **Give feedback:** report bugs, feature requests, or usability notes
+- **Join the effort:** contributions are more than welcome!
+- Join the Discord: https://discord.gg/XunReBq5
+
+Want to improve or contribute? Found a bug? Open an issue or a pull request on [GitHub](https://github.com/ori-coval/Koala-Log).

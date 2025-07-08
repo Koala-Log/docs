@@ -1,4 +1,6 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import type {BaseLayoutProps} from 'fumadocs-ui/layouts/shared';
+import {GithubInfo} from "fumadocs-ui/components/github-info";
+import Discord from "@/app/Discord";
 
 /**
  * Shared layout configurations
@@ -8,21 +10,30 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  * Docs Layout: app/docs/layout.tsx
  */
 export const baseOptions: BaseLayoutProps = {
-  nav: {
-    title: (
-      <>
-        <svg
-          width="24"
-          height="24"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-label="Logo"
-        >
-          <circle cx={12} cy={12} r={12} fill="currentColor" />
-        </svg>
-        My App
-      </>
-    ),
-  },
-  // see https://fumadocs.dev/docs/ui/navigation/links
-  links: [],
+    nav: {
+        title: (
+            <>
+                <img className="size-10 dark:hidden" src={`${process.env.BASE_PATH}/logo-light.png`} alt="Koala Log Logo"/>
+                <img className="size-10 hidden dark:inline" src={`${process.env.BASE_PATH}/logo.png`} alt="Koala Log Logo"/>
+
+                <span>Koala Log</span>
+            </>
+        ),
+    },
+    // see https://fumadocs.dev/docs/ui/navigation/links
+    links: [
+        {
+            type: 'custom',
+            children: (
+                <GithubInfo owner="Koala-Log" repo="Koala-Log" className="lg:-mx-2"/>
+            ),
+        },
+        {
+            text: "Discord",
+            url: "https://discord.gg/XunReBq5",
+            icon: <Discord/>,
+            type: 'icon'
+        }
+    ],
+    // githubUrl: "https://github.com/Koala-Log/Docs"
 };

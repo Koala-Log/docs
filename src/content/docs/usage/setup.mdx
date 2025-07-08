@@ -1,0 +1,42 @@
+---
+title: "Setup"
+description: "How to add KoalaLog to your FTC project."
+---
+
+### 🚀 How to Add to Your FTC Project
+
+To start logging FTC data in the `.wpilog` format, follow these steps:
+
+#### 1️⃣ Add the JitPack Repository
+
+In your `TeamCode/build.gradle` file, add the following **below the `android` block**:
+
+```groovy
+android {
+    // your existing config...
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+```
+
+#### 2️⃣ Add the Dependencies
+
+Still in `TeamCode/build.gradle`, add the following inside the `dependencies` block:
+
+```groovy
+dependencies {
+    implementation 'com.github.ori-coval.Koala-Log:KoalaLogger:<version>'
+    annotationProcessor 'com.github.ori-coval.Koala-Log:KoalaLoggingProcessor:<version>'
+}
+```
+
+> 🔁 Replace `<version>` with the latest version:  
+> [![](https://jitpack.io/v/ori-coval/Koala-Log.svg)](https://jitpack.io/#ori-coval/Koala-Log)
+
+#### ⚠️ Required: FTC Dashboard
+
+This logger uses [FTC Dashboard](https://github.com/acmerobotics/ftc-dashboard) to post live values.
+You **must** add FTC Dashboard to your project for it to work correctly. Follow the official instructions here:  
+📚 [How to Add FTC Dashboard](https://github.com/acmerobotics/ftc-dashboard?tab=readme-ov-file#basic)

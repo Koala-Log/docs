@@ -1,0 +1,63 @@
+---
+title: "Auto Logging"
+description: "How to use @AutoLog and periodic logging."
+---
+
+# FTC Auto Logger – How To Use
+
+## 📦 Prerequisites
+
+Before logging can begin, you need to make a few changes to your OpMode:
+
+1. **Initialize the Logger**  
+   Add the following line inside your OpMode's `init()` method:
+   ```java
+   KoalaLog.setup(hardwareMap);
+   ```
+2. **Enable Periodic Logging**  
+   Add this line inside your `loop()` or `run()` method:
+   ```java
+   AutoLogManager.periodic();
+   ```
+   > This call logs all data from classes marked with `@AutoLog`.
+
+---
+
+## 📝 Auto Logging with `@AutoLog`
+
+The `@AutoLog` annotation allows you to automatically log and publish supported data types from any public fields or methods.
+
+### ✅ Supported Features
+
+- Automatically logs **public fields** of supported types.
+- Logs **methods or suppliers** returning supported types when they are called.
+- Publishes data to both `.wpilog` and the [FTC Dashboard](https://acmerobotics.github.io/ftc-dashboard/).
+
+### 🧪 Example Usage
+
+Annotate your class with `@AutoLog`:
+
+```java
+@AutoLog
+public class ExampleSubsystem {
+    public double encoderPosition;
+    public boolean isBusy() {
+        return someCondition;
+    }
+}
+```
+
+### 🏷️ Accessing the Logged Version
+
+When using an auto-logged class, use the generated `<ClassName>AutoLogged` instead of your original class:
+
+```java
+// Instead of this:
+ExampleSubsystem example = new ExampleSubsystem();
+// Use this:
+ExampleSubsystemAutoLogged example = new ExampleSubsystemAutoLogged();
+```
+
+### @DoNotLog
+
+Adding `@DoNotLog` above a field or method will make sure it is not logged.

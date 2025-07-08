@@ -1,0 +1,51 @@
+---
+title: "Log Retrieval"
+description: "How to download logs from your FTC robot."
+---
+
+# Log Puller – Downloading Logs from Your FTC Robot
+
+This guide explains how to use the Log Puller tools provided in the [LogPuller directory](https://github.com/ori-coval/Koala-Log/tree/main/LogPuller) to download `.wpilog` files from your robot.
+
+---
+
+## 📥 Step 1: Download the Log Puller Executables
+
+Visit the [LogPuller folder in the GitHub repository](https://github.com/ori-coval/Koala-Log/tree/main/LogPuller) and download the following executables:
+
+- `FTCLogPuller.exe` – Downloads logs from the robot
+- `PullAndDeleteLogs.exe` – Downloads logs **and deletes** them from the robot
+
+> ⚠️ The first time you run either `.exe`, you must be connected to the **internet** (but **not** connected to the robot). This allows it to automatically download the ADB tool.
+
+---
+
+## 🔌 Step 2: Connect to the Robot Using ADB
+
+You can connect to your robot in one of two ways:
+
+### Option A: Wi-Fi (Wireless ADB)
+
+1. Connect your PC to the robot’s Wi-Fi network.
+2. Open the [REV Hardware Client](https://docs.revrobotics.com/rev-hardware-client).
+
+### Option B: USB-C Cable (Wired ADB)
+
+1. Connect your PC to the Control Hub using a USB-C cable.
+2. Open the [REV Hardware Client](https://docs.revrobotics.com/rev-hardware-client).
+
+For detailed instructions on wireless ADB setup, refer to [REV’s guide](https://docs.revrobotics.com/duo-control/managing-the-control-system/android-studio-using-wireless-adb).
+
+---
+
+## ▶️ Step 3: Run the Executables
+
+Once connected to the robot:
+
+1. Run `FTCLogPuller.exe` or `PullAndDeleteLogs.exe`.
+2. Choose a destination folder on your computer when prompted.
+3. The logs will be downloaded to that location.
+
+> 🗑️ `PullAndDeleteLogs.exe` will **delete logs** from the robot after downloading. Use this option if you want to clear storage on the Control Hub.
+
+You're now ready to inspect your logs in tools like [AdvantageScope](https://github.com/Mechanical-Advantage/AdvantageScope)!

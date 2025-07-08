@@ -1,0 +1,12 @@
+{
+        "pages": [
+          "index",
+          "api",
+          "usage",
+          "development",
+          "faq"
+        ],
+        "root": true,
+        "title": "Koala Log",
+        "description": ""
+}
