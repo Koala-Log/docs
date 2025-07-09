@@ -12,15 +12,15 @@ export function Provider({children}: { children: ReactNode }) {
             <Banner
                 id="hello-world"
                 variant="rainbow"
-                rainbowColors={[
-                    'rgba(34,197,94, 0.5)',
-                    'rgba(16,185,129, 0.5)',
-                    'transparent',
-                    'rgba(52,211,153, 0.5)',
-                    'transparent',
-                    'rgba(34,197,94, 0.5)',
-                    'transparent',
-                ]}
+                // rainbowColors={[
+                //     'rgba(34,197,94, 0.5)',
+                //     'rgba(16,185,129, 0.5)',
+                //     'transparent',
+                //     'rgba(52,211,153, 0.5)',
+                //     'transparent',
+                //     'rgba(34,197,94, 0.5)',
+                //     'transparent',
+                // ]}
             >
                 Koala Log just released! If you haven&apos;t
                 already,&nbsp;
