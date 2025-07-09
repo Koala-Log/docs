@@ -1,6 +1,7 @@
 import type {BaseLayoutProps} from 'fumadocs-ui/layouts/shared';
 import {GithubInfo} from "fumadocs-ui/components/github-info";
 import Discord from "@/app/Discord";
+import Image from "next/image";
 
 /**
  * Shared layout configurations
@@ -13,8 +14,8 @@ export const baseOptions: BaseLayoutProps = {
     nav: {
         title: (
             <>
-                <img className="size-10 dark:hidden" src={`${process.env.BASE_PATH}/logo-light.png`} alt="Koala Log Logo"/>
-                <img className="size-10 hidden dark:inline" src={`${process.env.BASE_PATH}/logo.png`} alt="Koala Log Logo"/>
+                <Image className="size-10 dark:hidden" src={`${process.env.BASE_PATH}/logo-light.png`} alt="Koala Log Logo" width={40} height={40} />
+                <Image className="size-10 hidden dark:inline" src={`${process.env.BASE_PATH}/logo.png`} alt="Koala Log Logo" width={40} height={40} />
 
                 <span>Koala Log</span>
             </>

@@ -9,7 +9,6 @@ import Link from "next/link";
 export function Provider({children}: { children: ReactNode }) {
     return (
         <>
-            // customise colors
             <Banner
                 id="hello-world"
                 variant="rainbow"
@@ -23,7 +22,7 @@ export function Provider({children}: { children: ReactNode }) {
                     'transparent',
                 ]}
             >
-                Koala Log just released! If you haven't
+                Koala Log just released! If you haven&apos;t
                 already,&nbsp;
                     <span className="prose">
                         <Link className="link prose" href="/main">
